@@ -10,8 +10,8 @@ int _printf(const char *format, ...)
 	char *str, ch;
 	int len = 0, i;
 
-	/**if (format == NULL)
-		return (-1);*/
+	if (format == NULL)
+		return (-1);
 
 	va_start(print_fmt, format);
 
