@@ -25,8 +25,6 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
-			if (*format == '\0')
-				break;
 			if (*format == 'c')
 			{
 				ch = va_arg(print_fmt, int);
@@ -48,6 +46,8 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				len++;
 			}
+			else
+				_putchar(*format);
 		}
 		format++;
 	}
