@@ -23,6 +23,7 @@ typedef struct flag_type
 	int minus;
 } flag_t;
 
+char *_strcpy(char *dest, char *src);
 int set_flag(char ch, flag_t *f);
 int _printf(const char *format, ...);
 int _putchar(char c);
