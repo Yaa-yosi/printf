@@ -1,17 +1,14 @@
 #include "main.h"
-
 /**
  * print_rot13 - encoder rot13
  * @fmt: pointer to string
  * Return: number of characters printed
  */
-
 int print_rot13(va_list fmt)
 {
 	char *str = va_arg(fmt, char *);
-	int size = _strlen(str);
+	int size = _strlen(str), i, j, count = 0;
 	char *array = malloc(size + 1);
-	int i, j, count = 0;
 	char data1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char datarot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
@@ -22,7 +19,8 @@ int print_rot13(va_list fmt)
 	_strcpy(array, str);
 	for (i = 0; array[i] != '\0'; i++)
 	{
-		if ((array[i] >= 'A' && array[i] <= 'Z') || (array[i] >= 'a' && array[i] <= 'z'))
+		if ((array[i] >= 'A' && array[i] <= 'Z')
+				|| (array[i] >= 'a' && array[i] <= 'z'))
 		{
 			for (j = 0; j < 52; j++)
 			{
@@ -36,7 +34,9 @@ int print_rot13(va_list fmt)
 			}
 		}
 		else
-			_putchar(array[i]);
+		{	_putchar(array[i]);
+			count++;
+		}
 	}
 	free(array);
 	return (count);
