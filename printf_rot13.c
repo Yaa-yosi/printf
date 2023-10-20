@@ -17,22 +17,27 @@ int print_rot13(va_list fmt)
 
 	if (array == NULL)
 		return (0);
-	_strcpy(array, str);
-
 	if (str == NULL)
 		return (0);
-	for (i = 0; str[i] != '\0'; i++)
+	_strcpy(array, str);
+	for (i = 0; array[i] != '\0'; i++)
 	{
-		for (j = 0; j < 52; j++)
+		if ((array[i] >= 'A' && array[i] <= 'Z') || (array[i] >= 'a' && array[i] <= 'z'))
 		{
-			if (array[i] == data1[j])
+			for (j = 0; j < 52; j++)
 			{
-				array[i] = datarot[j];
-				_putchar(array[i]);
-				count++;
-				break;
+				if (array[i] == data1[j])
+				{
+					array[i] = datarot[j];
+					_putchar(array[i]);
+					count++;
+					break;
+				}
 			}
 		}
+		else
+			_putchar(array[i]);
 	}
+	free(array);
 	return (count);
 }
