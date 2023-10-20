@@ -15,6 +15,8 @@ int print_rot13(va_list fmt)
 	char data1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char datarot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
+	if (array == NULL)
+		return (0);
 	_strcpy(array, str);
 
 	if (str == NULL)
