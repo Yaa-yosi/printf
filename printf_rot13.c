@@ -8,12 +8,14 @@
 
 int print_rot13(va_list fmt)
 {
-	char *str;
+	char *str = va_arg(fmt, char *);
+	int size = _strlen(str);
+	char *array = malloc(size + 1);
 	int i, j, count = 0;
 	char data1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char datarot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	str = va_arg(fmt, char *);
+	_strcpy(array, str);
 
 	if (str == NULL)
 		return (0);
@@ -21,10 +23,10 @@ int print_rot13(va_list fmt)
 	{
 		for (j = 0; j < 52; j++)
 		{
-			if (str[i] == data1[j])
+			if (array[i] == data1[j])
 			{
-				str[i] = datarot[j];
-				_putchar(str[i]);
+				array[i] = datarot[j];
+				_putchar(array[i]);
 				count++;
 				break;
 			}
